@@ -5,8 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainForm"
         mc:Ignorable="d"
-        Title="Login" Height="400" Width="400">
-    <Grid>
-        
-    </Grid>
+        Icon="Images/icons/logo1.png"
+        ResizeMode="NoResize"
+        Title="Enterprise Management System" Height="720" Width="1280" FontFamily="Segoe UI Light" FontSize="16">
+    <Border Padding="20">
+        <!-- Main panel-->
+        <StackPanel>
+            <!-- Order panel -->
+            <DockPanel x:Name="OrderPanel">
+                <StackPanel>
+                    <Grid Height="60" >
+                        <!--Button definition -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <!-- Button implementation-->
+                        <TextBlock HorizontalAlignment="Right" Text="Вы вошли как:" Margin="10 0 10 0" Grid.Column="4" Grid.Row="0"/>
+                        <TextBlock x:Name="userTitle" HorizontalAlignment="Center"  Margin="10 0 10 0" Grid.Column="5" Grid.Row="0"/>
+                        <Button x:Name="Order" Grid.Row="1" Margin="0 0 10 0"  Background="White" Grid.Column="0" Content="Заявки"/>
+                        <Button x:Name="Managment" Grid.Row="1" Margin="10 0 10 0"  Background="White" Grid.Column="1" Content="Управление заявками"/>
+                        <Button x:Name="Inventory" Grid.Row="1" Margin="10 0 10 0" Background="White" Grid.Column="2" Content="Инвентаризация"/>
+                        <Button x:Name="Archive" Grid.Row="1" Margin="10 0 10 0" Background="White" Grid.Column="3" Content="Архив"/>
+                        <Button x:Name="Report" Grid.Row="1" Margin="10 0 10 0" Background="White" Grid.Column="4" Content="Отчётность"/>
+                        <Button x:Name="AdminPanel" Grid.Row="1" Margin="10 0 0 0" Background="White" Grid.Column="5" Content="Управление персоналом"/>
+                    </Grid>
+
+                </StackPanel>
+            </DockPanel>
+            <!-- Work panel-->
+            <StackPanel Loaded="StackPanel_Loaded" Height="590" Width="1234">
+                <Frame Name="MainFrame"/>
+                <Border Padding="20">
+                    <Grid Background="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Новости обновлений" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+                        <TextBlock Text="Для продолжения работы с программой необходимо выполнить вход" x:Name="upper" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="0"/>
+                        <StackPanel x:Name="lower" Grid.Column="2" Margin="0 100" Grid.Row="1" >
+                            <!--Login form -->
+                            <TextBlock Text="Login" Margin="0 15 0 10" HorizontalAlignment="Center"/>
+                            <TextBox Width="250" x:Name="LoginBox"  Padding="2" />
+                            <TextBlock Text="Password" Margin="0 15 0 10" HorizontalAlignment="Center"/>
+                            <PasswordBox Width="250" x:Name="PasswordBox" Margin="2" Padding="2" PasswordChar="*" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="199"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="LoginButton" Margin="0,20,0,0" Content="Sign In" Background="White" Grid.Column="1" Height="20" VerticalAlignment="Top" Click="LoginButton_Click"/>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
 </Window>
+
